@@ -1,3 +1,11 @@
+SoylentGraham/New Chromantics Fork
+=============================
+- Fixes github actions locking up with `codesign`ing (presumably there's a modal dialog)
+- As per suggestions in https://github.com/actions/virtual-environments/issues/1820
+
+
+
+
 # Import Signing Certificate
 
 This Action imports an iOS or macOS signing certificate into a keychain. By default it creates a new temporary keychain that allows the Xcode tools to access the certificates.
