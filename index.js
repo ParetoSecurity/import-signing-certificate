@@ -30,7 +30,13 @@ const main = async () => {
     try {
         const keychainName = core.getInput("keychain-name") || `devbotsxyz-xcode-certificates-${process.env.GITHUB_REPOSITORY}`;
         const keychainPassword = core.getInput("keychain-password", {required: true});
-        const keychainPath = path.join(process.env.HOME, "Library/Keychains", keychainName + "-db");
+        
+        //  gr: codesign halts builds and they timeout. Presumably there's a modal dialog popping up on the runner. (Seems to be only with xcodebuild archive?)
+        //      but my personal xcframework scripts can lockup locally...
+        //  using different directory than ~/Library as per this suggestion
+        //  https://github.com/actions/virtual-environments/issues/1820
+        //const keychainPath = path.join(process.env.HOME, "Library/Keychains", keychainName + "-db");
+        const keychainPath = path.join(process.env.RUNNER_TEMP, "Library/Keychains", keychainName + "-db");
 
         // Setup the keychain if it does not exist yet
 
