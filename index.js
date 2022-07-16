@@ -65,7 +65,10 @@ const main = async () => {
         const importCommands = [
             ['security', ['default-keychain', '-s', keychainName]],
             ['security', ['unlock-keychain', '-p', keychainPassword, keychainName]],
-            ['security', ['import', certificatePath, '-f', 'pkcs12', '-k', keychainName, '-P', certificatePassphrase, '-T', '/usr/bin/codesign', '-x' ]],
+            //  gr: allow ANY app (-A) to use keychain, instead of specific app (-T) to try and fix codesign locking up in workflows
+            //  -x non-extractable after import
+            //['security', ['import', certificatePath, '-f', 'pkcs12', '-k', keychainName, '-P', certificatePassphrase, '-T', '/usr/bin/codesign', '-x' ]],
+            ['security', ['import', certificatePath, '-f', 'pkcs12', '-k', keychainName, '-P', certificatePassphrase, '-A', '-x' ]],
             ['security', ['set-key-partition-list', '-S', 'apple-tool:,apple:', '-s', '-k', keychainPassword, keychainName]]
         ]
 
