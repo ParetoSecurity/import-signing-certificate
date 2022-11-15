@@ -28,7 +28,7 @@ const execa = require('execa');
 
 const main = async () => {
     try {
-        const keychainName = core.getInput("keychain-name") || `devbotsxyz-xcode-certificates-${process.env.GITHUB_REPOSITORY}`;
+        const keychainName = core.getInput("keychain-name") || `gh-action-certificates-${process.env.GITHUB_SHA}`;
         const keychainPassword = core.getInput("keychain-password", {required: true});
         
         //  gr: codesign halts builds and they timeout. Presumably there's a modal dialog popping up on the runner. (Seems to be only with xcodebuild archive?)
