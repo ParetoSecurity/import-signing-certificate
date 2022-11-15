@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devbotsxyz/import-signing-certificate.git"
+    "url": "git+https://github.com/ParetoSecurity/import-signing-certificate.git"
   },
   "keywords": [
     "GitHub",
@@ -21,9 +21,9 @@
   "author": "Stefan Arentz <stefan@devbots.xyz>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/devbotsxyz/import-signing-certificate/issues"
+    "url": "https://github.com/ParetoSecurity/import-signing-certificate/issues"
   },
-  "homepage": "https://github.com/devbotsxyz/import-signing-certificate#readme",
+  "homepage": "https://github.com/ParetoSecurity/import-signing-certificate#readme",
   "dependencies": {
     "@actions/core": "^1.2.5",
     "execa": "^4.0.3"
